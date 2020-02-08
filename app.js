@@ -3,7 +3,7 @@ const app = express()
 
 //
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/todo', {
+mongoose.connect('mongodb://localhost/exptracker', {
   useNewUrlParser: true,
   useCreateIndex: true
 })
@@ -14,6 +14,11 @@ db.on('error', () => {
 db.once('open', () => {
   console.log('mongodb connected!')
 })
+const Exp = require('./models/record')
+
+//
+const methodOverride = require('method-override')
+app.use(methodOverride('_method'))
 
 //
 const exphbs = require('express-handlebars')
@@ -23,6 +28,7 @@ app.set('view engine', 'handlebars')
 //
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))
+
 
 
 
