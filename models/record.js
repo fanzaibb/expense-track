@@ -7,16 +7,16 @@ const expSchema = new Schema({
   },
   category:{
     type: String,
-    // require: true
+    require: true
   },
   expense:{
     type: String,
-    // require: true
+    require: true
   },
   date:{
     type: Date,
-    default: Date.now
+    require: true
   }
 })
 
-module.exports = mongoose.model('exptracker', expSchema)
+module.exports = mongoose.model('Expense', expSchema)

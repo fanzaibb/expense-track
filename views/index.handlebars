@@ -17,71 +17,31 @@
         <div style='font-size: 50px; padding-left: 25%; color: rgb(218, 120, 54);'>25260</div>
     </div>
     <div class="list-groups">
-      <div class="list-items">
-        <div class="item-contents">
-          <div class="item-content">
-            <div class="item-contents-front">
-              <i class="fas fa-home fa-2x"></i>
-              <div class="items pt-1">
-                <span>午餐</span>
-                <span>日期</span>
-              </div>
-            </div>  
-            <div class="p-3">
-              60
-            </div> 
+      {{#each expenses}}
+        <div class="list-items">
+          <div class="item-contents">
+            <div class="item-content">
+              <div class="item-contents-front">
+                <i class="fas fa-home fa-2x"></i>
+                <div class="items pt-1">
+                  <span>{{{this.name}}}</span>
+                  <span>{{{this.date}}}</span>
+                </div>
+              </div>  
+              <div class="p-3">
+                {{{this.expense}}}
+              </div> 
+            </div>
+            <div class="list-button p-3">
+              <a href="#">修改</a>
+              <a href="#">刪除</a>
+            </div>   
           </div>
-          <div class="list-button p-3">
-            <a href="#">修改</a>
-            <a href="#">刪除</a>
-          </div>   
         </div>
-      </div>
-
-      <div class="list-items">
-        <div class="item-contents">
-          <div class="item-content">
-            <div class="item-contents-front">
-              <img src="" alt="">
-              <div class="items pt-1">
-                <span>午餐</span>
-                <span>日期</span>
-              </div>
-            </div>  
-            <div class="p-3">
-              60
-            </div> 
-          </div>
-          <div class="list-button p-3">
-            <a href="#">修改</a>
-            <a href="#">刪除</a>
-          </div>   
-        </div>
-      </div>
-
-      <div class="list-items">
-        <div class="item-contents">
-          <div class="item-content">
-            <div class="item-contents-front">
-              <img src="" alt="">
-              <div class="items pt-1">
-                <span>午餐</span>
-                <span>日期</span>
-              </div>
-            </div>  
-            <div class="p-3">
-              60
-            </div> 
-          </div>
-          <div class="list-button p-3">
-            <a href="#">修改</a>
-            <a href="#">刪除</a>
-          </div>   
-        </div>
-      </div>
+      {{/each}}
       
       <div class="add-button">
-        <button type="submit" class="btn rounded-0 mt-3">新增支出</button>
+        <a href="/record/new" type="submit" class="btn rounded-0 mt-3">新增支出</a>
       </div>
     </div>
   </div>

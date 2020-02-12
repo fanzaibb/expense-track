@@ -30,11 +30,9 @@ app.use(express.static('public'))
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.get('/', (req, res) => {
-  res.render('index')
-})
 
 app.use('/', require('./routes/home'))
+
 app.use('/record', require('./routes/record'))
 
 
