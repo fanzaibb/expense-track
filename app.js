@@ -24,12 +24,18 @@ app.use(methodOverride('_method'))
 const exphbs = require('express-handlebars')
 app.engine('handlebars', exphbs({ dafaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
+app.use(express.static('public'))
 
 //
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))
 
+app.get('/', (req, res) => {
+  res.render('index')
+})
 
+app.use('/', require('./routes/home'))
+app.use('/record', require('./routes/record'))
 
 
 app.listen(3000, () => {
