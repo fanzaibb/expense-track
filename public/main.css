@@ -63,7 +63,7 @@ form {
   margin: 0 auto;
 }
 
-.form-control, .form-group .btn, #category {
+select, .form-control, .form-group .btn, #category {
   border: 1px solid black;
   width: 250px;
   border-radius: 0%;

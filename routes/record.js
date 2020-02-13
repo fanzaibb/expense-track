@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const Expense = require('../models/record')
+const Record = require('../models/record')
 
 // 新增一筆紀錄(頁面)
 router.get('/new', (req, res) => {
@@ -8,8 +8,18 @@ router.get('/new', (req, res) => {
 })
 
 // 新增一筆紀錄(完成)
-router.post('/new', (req, res) => {
-  return res.render('index')
+router.post('/', (req, res) => {
+  console.log(req.body)
+  const record = new Record({
+    name: req.body.name,
+    category: req.body.category,
+    date: req.body.date,
+    expense: req.body.expense
+  })
+  record.save(err => {
+    if (err) return console.error(err)
+    return res.redirect('/')
+  })
 })
 
 // 修改一筆紀錄（頁面）
