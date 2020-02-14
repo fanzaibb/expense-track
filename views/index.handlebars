@@ -1,6 +1,6 @@
 <div class="container">
-    <div class="dropdown">
-      <button class="btn-outline-dark dropdown-toggle rounded-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 60%;">
+    <fieldset class="dropdown">
+      <button class="btn-outline-dark dropdown-toggle rounded-0 p-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 60%;">
         類別
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="min-width: 60%;">
@@ -10,11 +10,18 @@
         <a class="dropdown-item" href="#">餐飲食品</a>
         <a class="dropdown-item" href="#">其他</a>
       </div>
-    </div>
-    <div class="amount pt-4 pb-3">
-        <div><p>總金額 :</p>
-        </div>
-        <div style='font-size: 50px; padding-left: 25%; color: rgb(218, 120, 54);'>25260</div>
+    </fieldset>
+    <div class="amount pt-4 pb-3 d-flex justify-content-between">
+        <div>總金額 :</div>
+        <div class='d-flex flex-row-reverse'>
+          
+          <div class="pt-2" style='font-weight: bolder; font-size: 40px; color: rgb(218, 120, 54);'>
+            元
+          </div>
+          <div style='font-weight: bolder; font-size: 50px; color: rgb(218, 120, 54);'>
+          {{{this.total}}}
+          </div>
+        </div> 
     </div>
     <div class="list-groups">
       {{#each expenses}}
@@ -23,25 +30,27 @@
             <div class="item-content">
               <div class="item-contents-front">
                 <i class="fas fa-home fa-2x"></i>
-                <div class="items pt-1">
+                <div class="items pt-2 pl-5">
                   <span>{{{this.name}}}</span>
-                  <span>{{{this.date}}}</span>
+                  <span></span>
                 </div>
               </div>  
               <div class="p-3">
                 {{{this.expense}}}
               </div> 
             </div>
-            <div class="list-button p-3">
-              <a href="#">修改</a>
-              <a href="#">刪除</a>
+            <div class="list-button mt-3 d-flex">
+              <a href="/record/{{{this.id}}}/update">修改</a>
+              <form action="/record/{{this.id}}/delete?_method=DELETE" method="POST">
+                <button type="submit" style="all: unset;">刪除</button>
+              </form>
             </div>   
           </div>
         </div>
       {{/each}}
       
       <div class="add-button">
-        <a href="/record/new" type="submit" class="btn rounded-0 mt-3">新增支出</a>
+        <a href="/record/new" type="submit" class="btn rounded-0 mt-5">新增支出</a>
       </div>
     </div>
   </div>

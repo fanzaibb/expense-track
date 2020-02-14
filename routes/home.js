@@ -4,9 +4,12 @@ const Expense = require('../models/record')
 
 router.get('/', (req, res) => {
   Expense.find().lean().exec((err, expenses) => {
+    let total = 0
+    for (let i = 0; i < expenses.length; i++) {
+      total += expenses[i].expense
+    }
     if (err) return console.error(err)
-    console.log(expenses)
-    return res.render('index', { expenses: expenses })
+    return res.render('index', { expenses: expenses, total: total })
   })
 })
 

@@ -3,17 +3,18 @@
     <form action="/user/login" method='POST'>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" class="form-control">
+        <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email">
       </div>
       <div class='form-group'>
-        <label for="password">Name</label>
+        <label for="password">Password</label>
         <input type="password" id='password' name='password' class='form-control'>
       </div>
       <div class='form-group'>
         <button type='submit' class="btn btn-outline-secondary btn-block mt-4">Login</button>
         <a href="/auth/facebook" class="btn btn-info btn-block">Facebook Login</a>
         <p class='pt-3'>
-        No Account? <a href="/user/register">Join us!</a>
+          No Account? 
+          <a href="/user/register">Join us!</a>
         </p>
       </div>
     </form>

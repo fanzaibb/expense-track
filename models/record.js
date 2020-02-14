@@ -10,7 +10,7 @@ const expSchema = new Schema({
     require: true
   },
   expense:{
-    type: String,
+    type: Number,
     require: true
   },
   date:{

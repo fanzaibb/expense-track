@@ -1,47 +1,36 @@
- <form action="/record" method="POST">
-  <div class="for-group row">
-    <span class="col-sm-2" style="font-size: 10px;">*必填欄位</span>
-    <span class="col-sm-10 pl-5 pb-2" style="font-size: 28px;">請輸入你的支出</span>
+<form action="/record" method="POST">
+  <div class="form-group pb-4 form-inline d-flex justify-content-center">
+    <h6 class="pr-4" style="font-size: 10px; text">*必填欄位</h6>
+    <h2 style="font-size: 28px; text-align: center;">請輸入你的支出</h2>
   </div>
-  <div class="form-group row">
-    <label for="name" class="col-sm-2 col-form-label">名稱* ：</label>
-    <div class="col-sm-10">
+  <div class="form-group form-inline d-flex justify-content-center">
+    <label for="name" class="col-form-label">名稱* ：</label>
       <input type="text" class="form-control" id="name" name="name">
-    </div>
   </div>
 
-  <div class="form-group row">
-    <label for="date" class="col-sm-2 col-form-label">日期*  ：</label>
-    <div class="col-sm-10">
-      <input type="date" class="form-control" name="date" id="date" min="2020-01-01" max="2020-12-31" value="2020-01-01">
-    </div>
+  <div class="form-group form-inline d-flex justify-content-center">
+    <label for="date" class="col-form-label">日期*  ：</label>   
+      <input type="date" class="form-control" name="date" id="date" min="2020-01-01" max="2020-12-31" value="2020-01-01">   
   </div>
   
-  <div class="form-group row">
-    <label for="category" class="col-sm-2 col-form-label">類別* ：</label>
-    <div class="form-group col-sm-10">
-      <select class="form-control" name ="category" aria-labelledby="dropdownMenuButton">
+  <div class="form-group form-inline d-flex justify-content-center">
+    <label for="category" class="col-form-label">類別* ：</label>  
+      <select class="form-control" name ="category" aria-labelledby="category">
         <option>請選擇類別</option>
         <option value="house">家居物業</option>
         <option value="trans">交通工具</option>
         <option value="leisure">休閒娛樂</option>
         <option value="food">餐飲食品</option>
         <option value="others">其他</option>
-      </select>
-    </div>
+      </select>    
   </div>
 
-  <div class="form-group row">
-    <label for="money" class="col-sm-2 col-form-label">金額*  ：</label>
-    <div class="col-sm-10">
+  <div class="form-group form-inline d-flex justify-content-center">
+    <label for="money" class="col-form-label">金額*  ：</label>
       <input type="text" class="form-control" id="money" name="expense">
-    </div>
   </div>
   
-  <div class="form-group row">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-10">
-      <button type="submit" class="btn" style="font-size: 18px;">新增支出</button>
-    </div>
-  </div>>
+  <div class="form-group d-flex justify-content-center pt-5">
+    <button type="submit" class="btn" style="font-size: 18px;">新增支出</button>  
+  </div>
 </form>

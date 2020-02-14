@@ -30,10 +30,20 @@ app.use(express.static('public'))
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))
 
+//
+const moment = require('moment')
+
+const session = require('express-session')
+app.use(session({
+  secret: 'secret', //required
+  resave: false, //if true, will update the session into session store automatically
+  saveUninitialized: true // save uninitialized(new and unchanged) session into session store
+}))
+
 
 app.use('/', require('./routes/home'))
-
 app.use('/record', require('./routes/record'))
+app.use('/user', require('./routes/user'))
 
 
 app.listen(3000, () => {
