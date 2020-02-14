@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../models/user')
+const passport = require('passport')
 
 // 登入頁面
 router.get('/login', (req, res) => {
@@ -10,7 +11,7 @@ router.get('/login', (req, res) => {
 // 登入動作
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', {
-    seccessRedirect: '/',
+    successRedirect: '/',
     failureRedirect: '/user/login'
   })(req, res, next)
 })

@@ -46,6 +46,7 @@ app.use(passport.session())
 require('./config/passport')(passport) //passport當作參數傳入(config/passport.js傳出的是函式)
 app.use((req, res, next) => {
   res.locals.user = req.user
+  res.locals.isAuthenticated = req.isAuthenticated()
   next()
 })
 
