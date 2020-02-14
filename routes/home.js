@@ -1,8 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const Expense = require('../models/record')
+const { authenticated } = require('../config/auth')
 
-router.get('/', (req, res) => {
+router.get('/', authenticated, (req, res) => {
   Expense.find().lean().exec((err, expenses) => {
     let total = 0
     for (let i = 0; i < expenses.length; i++) {

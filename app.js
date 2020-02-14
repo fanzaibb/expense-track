@@ -44,10 +44,10 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 require('./config/passport')(passport) //passport當作參數傳入(config/passport.js傳出的是函式)
-app.use(req, res, next) => {
+app.use((req, res, next) => {
   res.locals.user = req.user
   next()
-}
+})
 
 //
 const moment = require('moment')
