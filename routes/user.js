@@ -48,7 +48,8 @@ router.post('/register', (req, res) => {
 
 // 登出
 router.get('/logout', (req, res) => {
-  return res.redirect('/')
+  req.logout() //passport提供的函數，用來消除session
+  res.redirect('/user/login')
 })
 
 module.exports = router
