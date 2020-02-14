@@ -31,14 +31,28 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))
 
 //
-const moment = require('moment')
-
 const session = require('express-session')
 app.use(session({
   secret: 'secret', //required
   resave: false, //if true, will update the session into session store automatically
   saveUninitialized: true // save uninitialized(new and unchanged) session into session store
 }))
+
+//
+const passport = require('passport')
+app.use(passport.initialize())
+app.use(passport.session())
+
+require('./config/passport')(passport) //passport當作參數傳入(config/passport.js傳出的是函式)
+app.use(req, res, next) => {
+  res.locals.user = req.user
+  next()
+}
+
+//
+const moment = require('moment')
+
+
 
 
 app.use('/', require('./routes/home'))

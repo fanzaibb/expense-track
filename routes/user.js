@@ -8,8 +8,11 @@ router.get('/login', (req, res) => {
 })
 
 // 登入動作
-router.post('/login', (req, res) => {
-  return res.redirect('/')
+router.post('/login', (req, res, next) => {
+  passport.authenticate('local', {
+    seccessRedirect: '/',
+    failureRedirect: '/user/login'
+  })(req, res, next)
 })
 
 // 註冊頁面
