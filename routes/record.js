@@ -14,7 +14,8 @@ router.post('/', authenticated, (req, res) => {
     name: req.body.name,
     category: req.body.category,
     date: req.body.date,
-    expense: req.body.expense
+    expense: req.body.expense,
+    userId: req.user._id
   })
   record.save(err => {
     if (err) return console.error(err)
@@ -24,15 +25,14 @@ router.post('/', authenticated, (req, res) => {
 
 // 修改一筆紀錄（頁面）
 router.get('/update', authenticated, (req, res) => {
-  Record.findById(req.params.id, (err, record) => {
-    if (err) return console.error(err)
+  Record.findOne({ _id: req.params.id, userId: req.user.id }, (err, record) => {
     return res.render('update', { record: record })
   })
 })
 
 // 修改一筆紀錄（完成）
 router.post('/:id/update', authenticated, (req, res) => {
-  Record.findById(req.params.id, (err, record) =>{
+  Record.findOne({ _id: req.params.id, userId: req.user.id }, (err, record) =>{
     if (err) return console.error(err)
     record.name = req.body.name
     record.date = req.body.date
@@ -47,7 +47,7 @@ router.post('/:id/update', authenticated, (req, res) => {
 
 // 刪除紀錄
 router.post('/:id/delete', authenticated, (req, res) => {
-  Record.findById(req.params.id, (err, record) => {
+  Record.findOne({ _id: req.params.id, userId: req.user.id }, (err, record) => {
     if (err) return console.error(err)
     record.remove(err => {
       if (err) console.error(err)

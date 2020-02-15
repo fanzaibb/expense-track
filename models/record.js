@@ -16,6 +16,12 @@ const expSchema = new Schema({
   date:{
     type: Date,
     require: true
+  },
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: "User", //屬性由User這個model取得
+    index: true, //設userId為索引，用來查詢資料
+    required: true
   }
 })
 

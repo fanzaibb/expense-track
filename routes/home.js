@@ -4,7 +4,7 @@ const Expense = require('../models/record')
 const { authenticated } = require('../config/auth')
 
 router.get('/', authenticated, (req, res) => {
-  Expense.find().lean().exec((err, expenses) => {
+  Expense.find({ userId: req.user._id }).lean().exec((err, expenses) => {
     let total = 0
     for (let i = 0; i < expenses.length; i++) {
       total += expenses[i].expense
