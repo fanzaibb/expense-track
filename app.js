@@ -14,7 +14,7 @@ db.on('error', () => {
 db.once('open', () => {
   console.log('mongodb connected!')
 })
-const Exp = require('./models/record')
+// const Exp = require('./models/record')
 
 //
 const methodOverride = require('method-override')
@@ -53,12 +53,16 @@ app.use((req, res, next) => {
 //
 const moment = require('moment')
 
+//
+const flash = require('connect-flash')
+app.use(flash())
 
 
 
 app.use('/', require('./routes/home'))
 app.use('/record', require('./routes/record'))
 app.use('/user', require('./routes/user'))
+app.use('/auth', require('./routes/auths'))
 
 
 app.listen(3000, () => {

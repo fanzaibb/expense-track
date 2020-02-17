@@ -1,14 +1,15 @@
 <div class="container">
     <fieldset class="dropdown">
-      <button class="btn-outline-dark dropdown-toggle rounded-0 p-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 60%;">
+      <button class="btn-outline-dark dropdown-toggle p-2" type="button" name="inputCategory"id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 60%;">
         類別
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="min-width: 60%;">
-        <a class="dropdown-item" href="#">家居物業</a>
-        <a class="dropdown-item" href="#">交通出行</a>
-        <a class="dropdown-item" href="#">休閒娛樂</a>
-        <a class="dropdown-item" href="#">餐飲食品</a>
-        <a class="dropdown-item" href="#">其他</a>
+        <a class="dropdown-item" href="/?inputCategory=all">檢視全部</a>
+        <a class="dropdown-item" href="/?inputCategory=house">家居物業</a>
+        <a class="dropdown-item" href="/?inputCategory=trans">交通出行</a>
+        <a class="dropdown-item" href="/?inputCategory=leisure">休閒娛樂</a>
+        <a class="dropdown-item" href="/?inputCategory=food">餐飲食品</a>
+        <a class="dropdown-item" href="/?inputCategory=others">其他</a>
       </div>
     </fieldset>
     <div class="amount pt-4 pb-3 d-flex justify-content-between">
@@ -29,10 +30,24 @@
           <div class="item-contents">
             <div class="item-content">
               <div class="item-contents-front">
-                <i class="fas fa-home fa-2x"></i>
-                <div class="items pt-2 pl-5">
+                {{#if this.cateHouse}}
+                <i class="fas fa-home fa-3x"></i>
+                {{/if}}
+                {{#if this.cateTrans}}
+                <i class="fas fa-shuttle-van fa-3x"></i>
+                {{/if}}
+                {{#if this.cateLeisure}}
+                <i class="fas fa-grin-beam fa-3x"></i>
+                {{/if}}
+                {{#if this.cateFood}}
+                <i class="fas fa-utensils fa-3x"></i>
+                {{/if}}
+                {{#if this.cateOthers}}
+                <i class="fas fa-pen fa-3x"></i>
+                {{/if}}
+                <div class="items pt-2">
                   <span>{{{this.name}}}</span>
-                  <span></span>
+                  <span>{{this.date}}</span>
                 </div>
               </div>  
               <div class="p-3">
@@ -40,8 +55,8 @@
               </div> 
             </div>
             <div class="list-button mt-3 d-flex">
-              <a href="/record/{{{this.id}}}/update">修改</a>
-              <form action="/record/{{this.id}}/delete?_method=DELETE" method="POST">
+              <a href="/record/{{{this._id}}}/update">修改</a>
+              <form action="/record/{{this._id}}/delete?_method=DELETE" method="POST">
                 <button type="submit" style="all: unset;">刪除</button>
               </form>
             </div>   

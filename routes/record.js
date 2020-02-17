@@ -24,9 +24,13 @@ router.post('/', authenticated, (req, res) => {
 })
 
 // 修改一筆紀錄（頁面）
-router.get('/update', authenticated, (req, res) => {
-  Record.findOne({ _id: req.params.id, userId: req.user.id }, (err, record) => {
-    return res.render('update', { record: record })
+router.get('/:id/update', authenticated, (req, res) => {
+  Record.findOne(
+    { _id: req.params.id, userId: req.user.id }, 
+    (err, record) => {
+      console.log(record.name)
+      if (err) return console.error(err)
+      return res.render('update', { record: record })
   })
 })
 
