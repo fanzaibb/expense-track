@@ -39,6 +39,10 @@ app.use(session({
 }))
 
 //
+const flash = require('connect-flash')
+app.use(flash())
+
+//
 const passport = require('passport')
 app.use(passport.initialize())
 app.use(passport.session())
@@ -47,15 +51,15 @@ require('./config/passport')(passport) //passport當作參數傳入(config/passp
 app.use((req, res, next) => {
   res.locals.user = req.user
   res.locals.isAuthenticated = req.isAuthenticated()
+
+  res.locals.success_msg = req.flash('success_msg')
+  res.locals.warning_msg = req.flash('warning_msg')
   next()
 })
 
 //
 const moment = require('moment')
 
-//
-const flash = require('connect-flash')
-app.use(flash())
 
 
 

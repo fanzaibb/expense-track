@@ -10,16 +10,17 @@ router.get('/', authenticated, (req, res) => {
   .lean()
   .exec((err, expenses) => { //.exec()->mongoose查詢query的方法
 
+    // 類別篩選
     let sort = req.query.inputCategory || ""
     if ( sort !== "" && sort !== "all") {
       expenses = expenses.filter(record => {
         return record.category.includes(sort)
-    })
-  }
+      })
+    }
     
     let total = 0
     for (let i = 0; i < expenses.length; i++) {
-      
+
       // 總金額 
       total += expenses[i].expense
 

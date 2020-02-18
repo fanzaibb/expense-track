@@ -14,6 +14,18 @@ nav {
   padding: 8px;
 }
 
+/* .bg-image {
+  background-image: url('images/IMG_1955.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  filter: blur(3px);
+  z-index: -1;
+} */
+
 
 .item-content {
   width: 60%;
@@ -25,6 +37,9 @@ nav {
   flex-direction: column;
 }
 
+.image {
+  width: 50%;
+}
 
 .amount {
   width: 60%;
@@ -67,7 +82,6 @@ a {
 }
 
 i {
-  padding: 8% 10%;
   margin-right: 20px;
   color: rgb(129, 206, 206);
 }

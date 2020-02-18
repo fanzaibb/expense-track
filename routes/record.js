@@ -28,7 +28,7 @@ router.get('/:id/update', authenticated, (req, res) => {
   Record.findOne(
     { _id: req.params.id, userId: req.user.id }, 
     (err, record) => {
-      console.log(record.name)
+      console.log(record)
       if (err) return console.error(err)
       return res.render('update', { record: record })
   })

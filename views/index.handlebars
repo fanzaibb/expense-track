@@ -29,23 +29,25 @@
         <div class="list-items">
           <div class="item-contents">
             <div class="item-content">
-              <div class="item-contents-front">
-                {{#if this.cateHouse}}
-                <i class="fas fa-home fa-3x"></i>
-                {{/if}}
-                {{#if this.cateTrans}}
-                <i class="fas fa-shuttle-van fa-3x"></i>
-                {{/if}}
-                {{#if this.cateLeisure}}
-                <i class="fas fa-grin-beam fa-3x"></i>
-                {{/if}}
-                {{#if this.cateFood}}
-                <i class="fas fa-utensils fa-3x"></i>
-                {{/if}}
-                {{#if this.cateOthers}}
-                <i class="fas fa-pen fa-3x"></i>
-                {{/if}}
-                <div class="items pt-2">
+              <div class="item-contents-front row">
+                <div class="image col-4">
+                  {{#if this.cateHouse}}
+                  <i class="fas fa-home fa-2x"></i>
+                  {{/if}}
+                  {{#if this.cateTrans}}
+                  <i class="fas fa-shuttle-van fa-2x"></i>
+                  {{/if}}
+                  {{#if this.cateLeisure}}
+                  <i class="fas fa-grin-beam fa-2x"></i>
+                  {{/if}}
+                  {{#if this.cateFood}}
+                  <i class="fas fa-utensils fa-2x"></i>
+                  {{/if}}
+                  {{#if this.cateOthers}}
+                  <i class="fas fa-pen fa-2x"></i>
+                  {{/if}}
+                </div>
+                <div class="items col-8">
                   <span>{{{this.name}}}</span>
                   <span>{{this.date}}</span>
                 </div>
