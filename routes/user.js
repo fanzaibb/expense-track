@@ -72,7 +72,7 @@ router.post('/register', (req, res) => {
 // 登出
 router.get('/logout', (req, res) => {
   req.logout() //passport提供的函數，用來消除session
-  res.flash('success_msg', '你已成功登出～')
+  req.flash('success_msg', '你已成功登出～')
   res.redirect('/user/login')
 })
 

@@ -4,12 +4,14 @@ const Expense = require('../models/record')
 const { authenticated } = require('../config/auth')
 const moment = require('moment')
 
-router.get('/', authenticated, (req, res) => { 
-  Expense
-  .find({ userId: req.user._id })//確認登入後會傳入包含user資訊的req，找資料中有同組userId的資料
-  .lean()
-  .exec((err, expenses) => { //.exec()->mongoose查詢query的方法
+router.get('/', authenticated, (req, res) => {
 
+  Expense
+  //確認登入後會傳入包含user資訊的req，找資料中有同組userId的資料
+  .find({ userId: req.user._id })
+  .lean()
+  //.exec()->mongoose查詢query的方法
+  .exec((err, expenses) => {
     // 類別篩選
     let sort = req.query.inputCategory || ""
     if ( sort !== "" && sort !== "all") {
